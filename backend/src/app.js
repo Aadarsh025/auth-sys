@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const mongoSanitize = require("express-mongo-sanitize");
 
 const env = require("./config/env");
+const connectDB = require("./config/db");
 const authRoutes = require("./auth/auth.routes");
 const authenticate = require("./middleware/authenticate");
 const { notFound, errorHandler } = require("./middleware/errorHandler");
@@ -13,24 +14,33 @@ const { notFound, errorHandler } = require("./middleware/errorHandler");
 const app = express();
 const frontendDir = path.resolve(__dirname, "../../frontend");
 
-// Allow only your local development frontend origins.
-const allowedOrigins = new Set([
-  "http://127.0.0.1:5500",
-  "http://localhost:5500",
+// Required on Vercel (behind a proxy) so req.protocol and secure cookies work
+app.set("trust proxy", 1);
+
+// Extra allowed origins besides the app's own origin:
+// - CLIENT_URL env var (optional, comma-separated, no trailing slash)
+// - local dev: Live Server origins
+const extraOrigins = new Set([
+  ...(process.env.CLIENT_URL || "")
+    .split(",")
+    .map((s) => s.trim().replace(/\/$/, ""))
+    .filter(Boolean),
+  ...(env.isProd ? [] : ["http://127.0.0.1:5500", "http://localhost:5500"]),
 ]);
 
 // CORS must run before Helmet and the API routes.
-app.use(cors({
-  origin(origin, callback) {
-    if (!origin || allowedOrigins.has(origin)) {
-      return callback(null, true);
-    }
+// Same-origin requests (frontend and API on one Vercel domain) are allowed automatically.
+app.use(cors((req, callback) => {
+  const origin = req.get("origin");
+  const sameOrigin = Boolean(origin) && origin === `${req.protocol}://${req.get("host")}`;
+  const allowed = !origin || sameOrigin || extraOrigins.has(origin);
 
-    return callback(new Error("Origin not allowed by CORS"));
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Accept"],
+  callback(allowed ? null : new Error("Origin not allowed by CORS"), {
+    origin: allowed,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Accept"],
+  });
 }));
 
 app.disable("x-powered-by");
@@ -44,8 +54,7 @@ app.use(helmet({
       imgSrc: ["'self'", "data:"],
       connectSrc: [
         "'self'",
-        "http://localhost:5000",
-        "http://127.0.0.1:5000",
+        ...(env.isProd ? [] : ["http://localhost:5000", "http://127.0.0.1:5000"]),
       ],
       objectSrc: ["'none'"],
       baseUri: ["'self'"],
@@ -58,6 +67,17 @@ app.use(helmet({
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
 app.use(mongoSanitize());
+
+// Connect to MongoDB (cached) before any API route runs.
+// Needed on Vercel because server.js never runs there.
+app.use("/api", async (_req, _res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
 
 app.use("/api", (_req, res, next) => {
   res.set("Cache-Control", "no-store");
@@ -77,14 +97,18 @@ app.get("/api/dashboard", authenticate, (req, res) => {
   });
 });
 
-app.use(express.static(frontendDir, {
-  index: "index.html",
-  setHeaders(res, filePath) {
-    if (filePath.endsWith(".html")) {
-      res.setHeader("Cache-Control", "no-store");
-    }
-  },
-}));
+// Serve the frontend from Express only when running locally.
+// On Vercel, the root vercel.json serves the frontend/ folder as static files.
+if (!process.env.VERCEL) {
+  app.use(express.static(frontendDir, {
+    index: "index.html",
+    setHeaders(res, filePath) {
+      if (filePath.endsWith(".html")) {
+        res.setHeader("Cache-Control", "no-store");
+      }
+    },
+  }));
+}
 
 app.use(notFound);
 app.use(errorHandler);

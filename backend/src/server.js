@@ -1,25 +1,20 @@
-require("dotenv").config({ path: require("path").resolve(__dirname, "../../.env") });
+const path = require("path");
 
+// Local only: load ../../.env. Must run before anything requires ./config/env.
+// Vercel injects env vars itself, and a missing file is harmless.
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+
+const app = require("./app");
 const env = require("./config/env");
 const connectDB = require("./config/db");
-const app = require("./app");
 
-async function start() {
-  await connectDB();
-  const server = app.listen(env.port, () => {
-    console.log(`Gatehouse running at http://localhost:${env.port}`);
+connectDB()
+  .then(() => {
+    app.listen(env.port, () => {
+      console.log(`Server running on port ${env.port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB:", err);
+    process.exit(1);
   });
-
-  const shutdown = (signal) => {
-    console.log(`${signal} received. Closing server...`);
-    server.close(() => process.exit(0));
-  };
-
-  process.on("SIGINT", () => shutdown("SIGINT"));
-  process.on("SIGTERM", () => shutdown("SIGTERM"));
-}
-
-start().catch((error) => {
-  console.error("Failed to start Gatehouse:", error.message);
-  process.exit(1);
-});
