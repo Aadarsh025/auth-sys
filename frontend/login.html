@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <title>Sign in | Gatehouse</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <aside class="auth-aside">
+      <a class="brand" href="/"><span class="brand-mark">G</span><span>Gatehouse<span class="brand-period">.</span></span></a>
+      <div class="aside-content">
+        <span class="eyebrow"><span class="status-dot"></span> YOUR SPACE. YOUR SECURITY.</span>
+        <h1>A secure space<br>for everything<br><span>that matters.</span></h1>
+        <p class="aside-description">Welcome back. Sign in to continue where you left off, with security built into every step.</p>
+        <div class="security-card"><div class="security-icon">✓</div><div><h3>Security comes first</h3><p>Your session is protected with an HttpOnly cookie and revocable server-side session.</p></div></div>
+      </div>
+      <div class="aside-footer">● Designed with your security in mind · Gatehouse</div>
+    </aside>
+    <section class="auth-main">
+      <div class="mobile-brand"><a class="brand" href="index.html"><span class="brand-mark">G</span><span>Gatehouse<span class="brand-period">.</span></span></a></div>
+      <div class="auth-content">
+        <div class="form-heading">
+          <div class="welcome-icon">↗</div>
+          <p class="form-overline">YOUR ACCOUNT AWAITS</p>
+          <h2 id="login-title">Welcome back</h2>
+          <p class="form-subtitle">Enter your credentials to access your account.</p>
+        </div>
+        <form id="login-form" class="auth-form" novalidate>
+          <div id="banner" class="banner" role="alert" aria-live="polite" hidden></div>
+          <div class="field"><label for="email">Email address</label><div class="input-wrap"><span class="input-icon">✉</span><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required></div><p class="field-error" id="err-email"></p></div>
+          <div class="field"><div class="label-row"><label for="password">Password</label><span class="field-hint">Keep it private</span></div><div class="input-wrap"><span class="input-icon">⌑</span><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button type="button" class="pw-toggle" data-toggle="password" aria-label="Show password" aria-pressed="false">Show</button></div><p class="field-error" id="err-password"></p></div>
+          <button class="btn" type="submit" id="submit"><span class="btn-label">Sign in</span><span class="btn-arrow">→</span></button>
+          <div class="form-security-note">♧ Your credentials are handled securely.</div>
+        </form>
+        <p class="switch">Don't have an account? <a href="register.html">Create an account ↗</a></p>
+      </div>
+      <footer class="main-footer">© <span id="current-year"></span> Gatehouse · Secure access, simplified.</footer>
+    </section>
+  </main>
+  <script src="js/api.js"></script><script src="js/ui.js"></script><script src="js/login.js"></script>
+</body>
+</html>

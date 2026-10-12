@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <meta name="description" content="Your secure Gatehouse account dashboard.">
+
+  <title>Dashboard | Gatehouse</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="dashboard-page">
+  <div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <a class="brand dashboard-brand" href="/dashboard.html">
+        <span class="brand-mark">G</span>
+        <span>Gatehouse<span class="brand-period">.</span></span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+
+      <nav class="dashboard-menu" aria-label="Main navigation">
+        <a
+          class="dashboard-menu-item active"
+          href="/dashboard.html"
+          aria-current="page"
+        >
+          <span class="menu-icon" aria-hidden="true">▦</span>
+          Dashboard
+        </a>
+
+        <a class="dashboard-menu-item" href="#account-section">
+          <span class="menu-icon" aria-hidden="true">♙</span>
+          My account
+        </a>
+
+        <a class="dashboard-menu-item" href="#security-section">
+          <span class="menu-icon" aria-hidden="true">◇</span>
+          Security
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-security">
+          <span class="sidebar-security-icon" aria-hidden="true">✓</span>
+          <div>
+            <strong>You're protected</strong>
+            <p>Your session is verified by the server.</p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="sidebar-logout"
+          id="sidebar-logout"
+        >
+          <span aria-hidden="true">↪</span>
+          Sign out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main workspace -->
+    <div class="dashboard-main">
+
+      <!-- Top navigation -->
+      <header class="dashboard-topbar">
+        <div>
+          <p class="topbar-overline">GATEHOUSE / WORKSPACE</p>
+          <span class="topbar-title">Account overview</span>
+        </div>
+
+        <div class="nav-user">
+          <span class="nav-session-dot" aria-hidden="true"></span>
+          <span class="nav-session-label">Secure session</span>
+          <span class="nav-user-divider"></span>
+
+          <span class="avatar" id="avatar">G</span>
+
+          <div class="nav-user-info">
+            <strong id="nav-username">Account</strong>
+            <span>Personal account</span>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-small btn-secondary topbar-logout"
+            id="logout"
+          >
+            Sign out
+          </button>
+        </div>
+      </header>
+
+      <main class="dashboard-container">
+
+        <!-- Welcome banner -->
+        <section class="dashboard-welcome">
+          <div>
+            <span class="welcome-badge">
+              <span class="welcome-badge-dot"></span>
+              ACCOUNT VERIFIED
+            </span>
+
+            <h1 id="welcome">Welcome back.</h1>
+
+            <p class="dashboard-subtitle">
+              Your secure workspace is ready. Here's an overview
+              of your account and authentication status.
+            </p>
+          </div>
+
+          <div class="welcome-graphic" aria-hidden="true">
+            <div class="graphic-orbit orbit-one"></div>
+            <div class="graphic-orbit orbit-two"></div>
+
+            <div class="graphic-core">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m9 12 2 2 4-4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- API and logout errors -->
+        <div
+          id="dashboard-banner"
+          class="banner"
+          role="alert"
+          aria-live="polite"
+          hidden
+        ></div>
+
+        <!-- Overview cards -->
+        <section
+          class="dashboard-overview"
+          aria-label="Account overview"
+        >
+          <article class="overview-card">
+            <div class="overview-card-top">
+              <span class="overview-icon overview-icon-blue">♙</span>
+              <span class="overview-label">ACCOUNT</span>
+            </div>
+
+            <h2 id="account-name">Loading…</h2>
+            <p>Your Gatehouse identity</p>
+
+            <div class="overview-card-footer">
+              <span class="mini-status-dot"></span>
+              Account accessible
+            </div>
+          </article>
+
+          <article class="overview-card">
+            <div class="overview-card-top">
+              <span class="overview-icon overview-icon-green">✓</span>
+              <span class="overview-label">AUTHENTICATION</span>
+            </div>
+
+            <h2>Verified</h2>
+            <p>Your protected API request succeeded.</p>
+
+            <div class="overview-card-footer">
+              <span class="mini-status-dot"></span>
+              Identity confirmed
+            </div>
+          </article>
+
+          <article class="overview-card">
+            <div class="overview-card-top">
+              <span class="overview-icon overview-icon-purple">◇</span>
+              <span class="overview-label">SESSION SECURITY</span>
+            </div>
+
+            <h2>HttpOnly cookie</h2>
+            <p>Your session token is not exposed to page JavaScript.</p>
+
+            <div class="overview-card-footer">
+              <span class="mini-status-dot"></span>
+              Protected session
+            </div>
+          </article>
+        </section>
+
+        <!-- Account and security panels -->
+        <section class="dashboard-details">
+
+          <article
+            class="dashboard-panel"
+            id="account-section"
+          >
+            <div class="panel-heading">
+              <div>
+                <p class="panel-overline">YOUR INFORMATION</p>
+                <h2>Account details</h2>
+              </div>
+
+              <span class="panel-heading-icon">♙</span>
+            </div>
+
+            <p class="panel-description">
+              Your account information associated with this session.
+            </p>
+
+            <div class="profile-summary">
+              <span class="profile-avatar" id="profile-avatar">G</span>
+
+              <div>
+                <h3 id="profile-username">Loading profile…</h3>
+                <p id="profile-email">Retrieving account information</p>
+              </div>
+
+              <span class="profile-tag">USER</span>
+            </div>
+
+            <div class="detail-list">
+              <div class="detail-row">
+                <span>Username</span>
+                <strong id="detail-username">—</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Email address</span>
+                <strong id="detail-email">—</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Account type</span>
+                <strong>Standard account</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Authentication method</span>
+                <strong>Session cookie</strong>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="dashboard-panel"
+            id="security-section"
+          >
+            <div class="panel-heading">
+              <div>
+                <p class="panel-overline">PROTECTION CENTER</p>
+                <h2>Security status</h2>
+              </div>
+
+              <span class="panel-heading-icon security-heading-icon">◇</span>
+            </div>
+
+            <p class="panel-description">
+              An overview of the protections used by Gatehouse.
+            </p>
+
+            <div class="security-list">
+              <div class="security-row">
+                <span class="security-check">✓</span>
+                <div>
+                  <strong>Protected route</strong>
+                  <p>
+                    The backend verifies your session before returning
+                    your profile.
+                  </p>
+                </div>
+                <span class="security-state">Active</span>
+              </div>
+
+              <div class="security-row">
+                <span class="security-check">✓</span>
+                <div>
+                  <strong>HttpOnly cookie</strong>
+                  <p>
+                    Client-side scripts cannot read the session cookie.
+                  </p>
+                </div>
+                <span class="security-state">Active</span>
+              </div>
+
+              <div class="security-row">
+                <span class="security-check">✓</span>
+                <div>
+                  <strong>Session revocation</strong>
+                  <p>
+                    Signing out revokes the current server-side session.
+                  </p>
+                </div>
+                <span class="security-state">Enabled</span>
+              </div>
+            </div>
+
+            <div class="security-notice">
+              <span>ⓘ</span>
+              <p>
+                These indicators describe the configured authentication
+                mechanisms; they are not a complete security audit.
+              </p>
+            </div>
+          </article>
+
+        </section>
+
+        <footer class="dashboard-footer">
+          <div>
+            <span class="footer-indicator"></span>
+            Gatehouse authentication is active
+          </div>
+
+          <span>Secure access, simplified.</span>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

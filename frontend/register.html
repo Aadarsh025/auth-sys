@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <title>Create account | Gatehouse</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <aside class="auth-aside">
+      <a class="brand" href="index.html"><span class="brand-mark">G</span><span>Gatehouse<span class="brand-period">.</span></span></a>
+      <div class="aside-content">
+        <span class="eyebrow"><span class="status-dot"></span> A BETTER WAY TO SIGN IN</span>
+        <h1>Your next<br>chapter starts<br><span>right here.</span></h1>
+        <p class="aside-description">Create your account and get a secure space that's yours from the very beginning.</p>
+        <div class="security-card"><div class="security-icon">✓</div><div><h3>Privacy by design</h3><p>Your password is hashed before storage, and your session token stays out of JavaScript.</p></div></div>
+      </div>
+      <div class="aside-footer">● Simple setup · Thoughtful security · Gatehouse</div>
+    </aside>
+    <section class="auth-main">
+      <div class="mobile-brand"><a class="brand" href="index.html"><span class="brand-mark">G</span><span>Gatehouse<span class="brand-period">.</span></span></a></div>
+      <div class="auth-content">
+        <div class="form-heading">
+          <div class="welcome-icon">＋</div>
+          <p class="form-overline">GET STARTED</p>
+          <h2>Create account</h2>
+          <p class="form-subtitle">A few details and you're ready to go.</p>
+        </div>
+        <form id="register-form" class="auth-form" novalidate>
+          <div id="banner" class="banner" role="alert" aria-live="polite" hidden></div>
+          <div class="field"><label for="username">Username</label><div class="input-wrap"><span class="input-icon">@</span><input id="username" name="username" type="text" placeholder="Choose a username" autocomplete="username" minlength="3" maxlength="30" required></div><p class="field-error" id="err-username"></p></div>
+          <div class="field"><label for="email">Email address</label><div class="input-wrap"><span class="input-icon">✉</span><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required></div><p class="field-error" id="err-email"></p></div>
+          <div class="field"><label for="password">Password</label><div class="input-wrap"><span class="input-icon">⌑</span><input id="password" name="password" type="password" placeholder="At least 10 characters" autocomplete="new-password" minlength="10" maxlength="128" required><button type="button" class="pw-toggle" data-toggle="password" aria-label="Show password" aria-pressed="false">Show</button></div><p class="field-error" id="err-password"></p><p class="field-hint">Use at least 10 characters. A longer passphrase is even better.</p></div>
+          <button class="btn" type="submit" id="submit"><span class="btn-label">Create account</span><span class="btn-arrow">→</span></button>
+          <div class="form-security-note">♧ Your password is securely hashed before storage.</div>
+        </form>
+        <p class="switch">Already have an account? <a href="login.html">Sign in ↗</a></p>
+      </div>
+      <footer class="main-footer">© <span id="current-year"></span> Gatehouse · Secure access, simplified.</footer>
+    </section>
+  </main>
+  <script src="js/api.js"></script><script src="js/ui.js"></script><script src="js/register.js"></script>
+</body>
+</html>

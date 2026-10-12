@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101828">
+  <meta
+    name="description"
+    content="Gatehouse helps you access your account through a simple, secure authentication experience."
+  >
+
+  <title>Gatehouse | Secure Access</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/landing.css">
+  <script src="js/landing.js" defer></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="" class="brand" aria-label="Gatehouse home">
+        <span class="brand-mark">G</span>
+        <span>Gatehouse<span class="brand-period">.</span></span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#security">Security</a>
+        <a href="#how-it-works">How it works</a>
+
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost">Sign in</a>
+          <a href="register.html" class="btn btn-primary">
+            Get started <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            SIMPLE. SECURE. YOURS.
+          </div>
+
+          <h1>
+            Your digital life.
+            <span>Behind one</span>
+            <span class="gradient-text">secure door.</span>
+          </h1>
+
+          <p class="hero-description">
+            Meet a simpler way to access your account. Gatehouse brings
+            sign-in, account access, and session protection together in
+            one clean experience.
+          </p>
+
+          <div class="hero-actions">
+            <a href="register.html" class="btn btn-primary btn-large">
+              Create your account
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="#how-it-works" class="btn btn-secondary btn-large">
+              Explore how it works
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span class="check-icon" aria-hidden="true">✓</span>
+            A straightforward experience, from sign-in to sign-out.
+          </div>
+        </div>
+
+        <!-- Decorative access illustration -->
+        <div class="hero-visual" aria-label="Decorative secure access illustration">
+          <div class="visual-orbit orbit-one"></div>
+          <div class="visual-orbit orbit-two"></div>
+
+          <div class="visual-card visual-card-top">
+            <span class="mini-icon">✦</span>
+            <div>
+              <strong>Account access</strong>
+              <small>Designed around you</small>
+            </div>
+            <span class="mini-check">✓</span>
+          </div>
+
+          <div class="portal">
+            <div class="portal-inner">
+              <div class="portal-symbol">
+                <svg
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M25 43V31C25 17.2 36.2 6 50 6C63.8 6 75 17.2 75 31V43"
+                    stroke="currentColor"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                  />
+                  <rect
+                    x="15"
+                    y="38"
+                    width="70"
+                    height="55"
+                    rx="13"
+                    fill="currentColor"
+                  />
+                  <circle cx="50" cy="62" r="7" fill="#101828"/>
+                  <path
+                    d="M50 67V77"
+                    stroke="#101828"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+
+              <span class="portal-caption">YOUR SPACE</span>
+              <div class="portal-line"></div>
+              <div class="portal-line portal-line-short"></div>
+            </div>
+          </div>
+
+          <div class="visual-card visual-card-bottom">
+            <div class="avatar-stack">
+              <span>G</span>
+              <span>✓</span>
+            </div>
+            <div>
+              <strong>Your account</strong>
+              <small>One clear starting point</small>
+            </div>
+          </div>
+
+          <div class="floating-star star-one">✦</div>
+          <div class="floating-star star-two">✧</div>
+        </div>
+      </div>
+
+      <div class="container hero-bottom">
+        <span>BUILT FOR EVERYDAY ACCESS</span>
+        <div class="bottom-divider"></div>
+        <span>LESS FRICTION. MORE CLARITY.</span>
+        <div class="bottom-divider"></div>
+        <span>SECURITY-MINDED BY DESIGN</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features-section" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">WHAT MAKES IT DIFFERENT</span>
+          <h2>Everything you need.<br><span>Nothing in the way.</span></h2>
+          <p>
+            A focused authentication experience that keeps account access
+            simple and makes important actions easy to find.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon purple-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="4" y="10" width="16" height="11" rx="3"
+                  stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+                <circle cx="12" cy="15" r="1.4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Account protection</h3>
+            <p>
+              Keep authentication at the center of the experience with
+              security-conscious account access.
+            </p>
+            <a href="#security" class="text-link">
+              Explore security <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon blue-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="16" rx="3"
+                  stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="8" cy="10" r="2"
+                  stroke="currentColor" stroke-width="1.8"/>
+                <path d="M5 16c.8-1.6 2-2.4 3-2.4s2.2.8 3 2.4M14 9h4M14 13h4"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Your account, at a glance</h3>
+            <p>
+              Access your dashboard and view the account information
+              associated with your signed-in session.
+            </p>
+            <a href="login.html" class="text-link">
+              Sign in to explore <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon green-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3 20 6v5c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V6l8-3Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linejoin="round"/>
+                <path d="m8.5 12 2.2 2.2 4.8-5"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Clear session controls</h3>
+            <p>
+              Make it easy to understand when you are signed in and
+              give yourself a clear way to sign out.
+            </p>
+            <a href="#how-it-works" class="text-link">
+              See the process <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="security-section" id="security">
+      <div class="container security-grid">
+        <div class="security-content">
+          <span class="section-label section-label-light">
+            SECURITY IS NOT AN AFTERTHOUGHT
+          </span>
+
+          <h2>
+            Access should feel
+            <span>simple. Security should feel considered.</span>
+          </h2>
+
+          <p>
+            Gatehouse is designed to pair a clean interface with
+            backend-enforced authentication. The server, not just the
+            browser, must decide who can access protected information.
+          </p>
+
+          <a href="register.html" class="btn btn-light btn-large">
+            Get started <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="security-panel">
+          <div class="security-panel-header">
+            <span class="security-panel-icon">✦</span>
+            <div>
+              <strong>Security principles</strong>
+              <small>What a secure flow should include</small>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <span class="security-item-icon">01</span>
+            <div>
+              <strong>Protected credentials</strong>
+              <p>Store password hashes, never plaintext passwords.</p>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <span class="security-item-icon">02</span>
+            <div>
+              <strong>Server-verified sessions</strong>
+              <p>Verify authentication before serving private data.</p>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <span class="security-item-icon">03</span>
+            <div>
+              <strong>Controlled sign-out</strong>
+              <p>Clear the session cookie and revoke server-side sessions when supported.</p>
+            </div>
+          </div>
+
+          <div class="security-panel-footer">
+            <span class="security-dot"></span>
+            Security depends on correct backend implementation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section steps-section" id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">THREE SIMPLE STEPS</span>
+          <h2>From new account<br><span>to your own space.</span></h2>
+          <p>
+            No complicated journey. Just the essential steps to get
+            started and access your account.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-connector"></div>
+            <h3>Create an account</h3>
+            <p>
+              Register with the details requested by the Gatehouse
+              registration form.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-connector"></div>
+            <h3>Sign in securely</h3>
+            <p>
+              Enter your credentials and let the backend validate
+              your authentication request.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-connector"></div>
+            <h3>Access your dashboard</h3>
+            <p>
+              View your account information and sign out when
+              you have finished.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-decoration cta-decoration-one"></div>
+          <div class="cta-decoration cta-decoration-two"></div>
+
+          <div class="cta-content">
+            <span class="section-label section-label-light">
+              YOUR NEXT STEP STARTS HERE
+            </span>
+            <h2>Ready to step inside?</h2>
+            <p>
+              Create your account and experience a cleaner approach
+              to account access.
+            </p>
+
+            <div class="cta-actions">
+              <a href="register.html" class="btn btn-light btn-large">
+                Create an account <span aria-hidden="true">→</span>
+              </a>
+              <a href="login.html" class="cta-signin">Already registered? Sign in</a>
+            </div>
+          </div>
+
+          <div class="cta-symbol" aria-hidden="true">G<span>.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-main">
+      <a href="/" class="brand footer-brand" aria-label="Gatehouse home">
+        <span class="brand-mark">G</span>
+        <span>Gatehouse<span class="brand-period">.</span></span>
+      </a>
+
+      <p>A clear path to secure account access.</p>
+
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#security">Security</a>
+        <a href="login.html">Sign in</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© <span id="current-year"></span> Gatehouse. All rights reserved.</span>
+      <span>Built with care. Designed for clarity.</span>
+    </div>
+  </footer>
+</body>
+</html>
